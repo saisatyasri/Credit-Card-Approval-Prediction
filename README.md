@@ -160,11 +160,11 @@ Visit `http://localhost:5000`
 
 | Name | Role | Email |
 |---|---|---|
-| Karthik Ganti | Team Lead | karthikganti0788@gmail.com |
-| Joy Kumar Roy | App Development | 23p31a0522@acet.ac.in |
-| Nandini Priya Masina | Data Analysis & EDA | nandinipriyachowdary@gmail.com |
-| Kunisetti Uma Nandeswari | Data Preprocessing | umanandeswarik520@gmail.com |
-| Kantipudi Vivek Vardhan | Feature Engineering & Models | vivekkantipudi09@gmail.com |
+| sirisha  | Team Lead |  |
+|  sai satya sri| App Development |  |
+| prasanna | Data Analysis & EDA |  |
+| hansraj | Data Preprocessing | |
+| sravya | Feature Engineering & Models |  |
 
 ---
 
