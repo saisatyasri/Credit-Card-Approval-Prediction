@@ -1,0 +1,315 @@
+{% extends "base.html" %}
+{% block title %}Predict — CreditAI{% endblock %}
+
+{% block content %}
+
+<div class="d-flex align-items-center mb-4 gap-3">
+  <div class="page-icon bg-primary text-white rounded-3 p-3">
+    <i class="bi bi-robot fs-3"></i>
+  </div>
+  <div>
+    <h2 class="mb-0 fw-bold">Credit Card Eligibility Predictor</h2>
+    <p class="text-muted mb-0">Enter applicant details below to get an instant approval prediction.</p>
+  </div>
+</div>
+
+{% if not models_loaded %}
+<div class="alert alert-warning d-flex align-items-center" role="alert">
+  <i class="bi bi-exclamation-triangle-fill me-3 fs-4"></i>
+  <div>
+    <strong>Model not available.</strong>
+    Please run <code>python train_model.py</code> first to train and save the model.
+  </div>
+</div>
+{% endif %}
+
+{% if error %}
+<div class="alert alert-danger d-flex align-items-center" role="alert">
+  <i class="bi bi-x-octagon-fill me-3 fs-4"></i>
+  <div>{{ error }}</div>
+</div>
+{% endif %}
+
+<!-- Prediction Result -->
+{% if result %}
+<div id="result-section" class="result-card result-{{ result.color }} mb-5">
+  <div class="result-icon">
+    <i class="bi bi-{{ result.icon }}"></i>
+  </div>
+  <h2 class="result-title">{{ result.prediction }}</h2>
+  <p class="result-subtitle">
+    Confidence Score: <strong>{{ result.confidence }}%</strong>
+  </p>
+  <div class="progress confidence-bar mb-4">
+    <div class="progress-bar bg-{{ result.color }}"
+         style="width: {{ result.confidence }}%"
+         role="progressbar">
+      {{ result.confidence }}%
+    </div>
+  </div>
+
+  <!-- Input Summary -->
+  <div class="card border-0 bg-white bg-opacity-75 text-start p-3 mt-3">
+    <h6 class="fw-bold mb-3 text-dark"><i class="bi bi-person-vcard me-2"></i>Applicant Summary</h6>
+    <div class="row g-2">
+      {% for key, val in result.inputs.items() %}
+      <div class="col-6 col-md-4">
+        <small class="text-muted d-block">{{ key }}</small>
+        <span class="fw-semibold text-dark">{{ val }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="mt-4 d-flex gap-3 justify-content-center flex-wrap">
+    <a href="/predict" class="btn btn-light fw-semibold">
+      <i class="bi bi-arrow-counterclockwise me-1"></i>New Prediction
+    </a>
+    <a href="/history" class="btn btn-outline-light fw-semibold">
+      <i class="bi bi-clock-history me-1"></i>View History
+    </a>
+  </div>
+
+  <p class="mt-3 mb-0 opacity-50" style="font-size:.8rem;">{{ result.timestamp }}</p>
+</div>
+{% endif %}
+
+<!-- Prediction Form -->
+<form id="predictForm" method="POST" action="/predict" novalidate>
+  <div class="row g-4">
+
+    <!-- Section A: Personal Information -->
+    <div class="col-12">
+      <div class="section-header">
+        <i class="bi bi-person-fill me-2"></i>Personal Information
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <label class="form-label fw-semibold">Gender <span class="text-danger">*</span></label>
+      <div class="d-flex gap-3">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="genderM" value="M"
+                 {{ 'checked' if not result }} required>
+          <label class="form-check-label" for="genderM">Male</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="genderF" value="F">
+          <label class="form-check-label" for="genderF">Female</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <label for="age" class="form-label fw-semibold">Age (years) <span class="text-danger">*</span></label>
+      <input type="number" class="form-control" id="age" name="age"
+             min="18" max="75" value="30" required>
+    </div>
+
+    <div class="col-md-3">
+      <label for="children" class="form-label fw-semibold">Number of Children</label>
+      <input type="number" class="form-control" id="children" name="children"
+             min="0" max="10" value="0">
+    </div>
+
+    <div class="col-md-3">
+      <label for="fam_members" class="form-label fw-semibold">Family Members</label>
+      <input type="number" class="form-control" id="fam_members" name="fam_members"
+             min="1" max="15" value="2">
+    </div>
+
+    <!-- Section B: Financial Information -->
+    <div class="col-12">
+      <div class="section-header">
+        <i class="bi bi-currency-rupee me-2"></i>Financial Information
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <label for="income" class="form-label fw-semibold">Annual Income (₹) <span class="text-danger">*</span></label>
+      <div class="input-group">
+        <span class="input-group-text">₹</span>
+        <input type="number" class="form-control" id="income" name="income"
+               min="10000" max="99999999" step="1000" value="150000" required>
+      </div>
+      <div id="incomeDisplay" class="form-text text-muted"></div>
+    </div>
+
+    <div class="col-md-4">
+      <label for="income_type" class="form-label fw-semibold">Income Type <span class="text-danger">*</span></label>
+      <select class="form-select" id="income_type" name="income_type" required>
+        {% for t in income_types %}
+        <option value="{{ t }}" {{ 'selected' if t == 'Working' }}>{{ t }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label fw-semibold d-block">Ownership</label>
+      <div class="d-flex gap-3 mt-2">
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" id="own_car" name="own_car" value="Y">
+          <label class="form-check-label" for="own_car"><i class="bi bi-car-front-fill me-1"></i>Car</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" id="own_realty" name="own_realty" value="Y">
+          <label class="form-check-label" for="own_realty"><i class="bi bi-house-fill me-1"></i>Property</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section C: Employment -->
+    <div class="col-12">
+      <div class="section-header">
+        <i class="bi bi-briefcase-fill me-2"></i>Employment Details
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <label for="employed_years" class="form-label fw-semibold">Years Employed</label>
+      <input type="number" class="form-control" id="employed_years" name="employed_years"
+             min="0" max="50" step="0.5" value="2"
+             oninput="updateUnemployed(this.value)">
+      <div class="form-text" id="employedNote"></div>
+    </div>
+
+    <div class="col-md-4">
+      <label for="occupation" class="form-label fw-semibold">Occupation Type</label>
+      <select class="form-select" id="occupation" name="occupation">
+        {% for o in occupations %}
+        <option value="{{ o }}" {{ 'selected' if o == 'Laborers' }}>{{ o }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label fw-semibold d-block">Contact Flags</label>
+      <div class="d-flex gap-3 flex-wrap mt-2">
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" id="flag_mobil" name="flag_mobil" value="1" checked>
+          <label class="form-check-label" for="flag_mobil"><i class="bi bi-phone-fill me-1"></i>Mobile</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" id="flag_work_phone" name="flag_work_phone" value="1">
+          <label class="form-check-label" for="flag_work_phone">Work Phone</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" id="flag_phone" name="flag_phone" value="1">
+          <label class="form-check-label" for="flag_phone">Phone</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" id="flag_email" name="flag_email" value="1">
+          <label class="form-check-label" for="flag_email"><i class="bi bi-envelope-fill me-1"></i>Email</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section D: Education & Housing -->
+    <div class="col-12">
+      <div class="section-header">
+        <i class="bi bi-mortarboard-fill me-2"></i>Education &amp; Housing
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <label for="edu_type" class="form-label fw-semibold">Education Level <span class="text-danger">*</span></label>
+      <select class="form-select" id="edu_type" name="edu_type" required>
+        {% for e in edu_types %}
+        <option value="{{ e }}" {{ 'selected' if e == 'Higher education' }}>{{ e }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="col-md-4">
+      <label for="family_status" class="form-label fw-semibold">Family Status</label>
+      <select class="form-select" id="family_status" name="family_status">
+        {% for fs in family_statuses %}
+        <option value="{{ fs }}" {{ 'selected' if fs == 'Married' }}>{{ fs }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="col-md-4">
+      <label for="housing_type" class="form-label fw-semibold">Housing Type</label>
+      <select class="form-select" id="housing_type" name="housing_type">
+        {% for h in housing_types %}
+        <option value="{{ h }}" {{ 'selected' if h == 'House / apartment' }}>{{ h }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <!-- Submit -->
+    <div class="col-12 mt-2">
+      <button type="submit" class="btn btn-primary btn-lg px-5 fw-semibold shadow-sm" id="submitBtn">
+        <i class="bi bi-cpu-fill me-2"></i>Predict Approval
+      </button>
+      <button type="reset" class="btn btn-outline-secondary btn-lg ms-3">
+        <i class="bi bi-arrow-counterclockwise me-1"></i>Reset
+      </button>
+    </div>
+
+  </div><!-- /row -->
+</form>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // Scenario pre-fill values
+  const SCENARIOS = {
+    low_risk: {
+      gender: 'F', age: 35, children: 1, fam_members: 3,
+      income: 150000, income_type: 'Working',
+      own_car: true, own_realty: true,
+      employed_years: 8, occupation: 'Core staff',
+      edu_type: 'Higher education', family_status: 'Married',
+      housing_type: 'House / apartment',
+      flag_mobil: true, flag_email: true
+    },
+    mid_risk: {
+      gender: 'M', age: 28, children: 0, fam_members: 2,
+      income: 75000, income_type: 'Working',
+      own_car: false, own_realty: false,
+      employed_years: 2, occupation: 'Sales staff',
+      edu_type: 'Secondary / secondary special', family_status: 'Single / not married',
+      housing_type: 'Rented apartment',
+      flag_mobil: true, flag_email: false
+    },
+    high_risk: {
+      gender: 'M', age: 22, children: 0, fam_members: 4,
+      income: 30000, income_type: 'Student',
+      own_car: false, own_realty: false,
+      employed_years: 0, occupation: 'Unknown',
+      edu_type: 'Lower secondary', family_status: 'Single / not married',
+      housing_type: 'With parents',
+      flag_mobil: true, flag_email: false
+    }
+  };
+
+  window.fillScenario = function(type) {
+    const s = SCENARIOS[type];
+    if (!s) return;
+    window.location.href = '/predict#predictForm';
+    setTimeout(() => {
+      document.querySelector(`input[name=gender][value=${s.gender}]`).checked = true;
+      document.getElementById('age').value          = s.age;
+      document.getElementById('children').value     = s.children;
+      document.getElementById('fam_members').value  = s.fam_members;
+      document.getElementById('income').value       = s.income;
+      setSelectValue('income_type',   s.income_type);
+      document.getElementById('own_car').checked    = s.own_car;
+      document.getElementById('own_realty').checked = s.own_realty;
+      document.getElementById('employed_years').value = s.employed_years;
+      setSelectValue('occupation',    s.occupation);
+      setSelectValue('edu_type',      s.edu_type);
+      setSelectValue('family_status', s.family_status);
+      setSelectValue('housing_type',  s.housing_type);
+      document.getElementById('flag_mobil').checked = s.flag_mobil;
+      document.getElementById('flag_email').checked = s.flag_email;
+      updateIncomeDisplay(s.income);
+      updateUnemployed(s.employed_years);
+      document.getElementById('predictForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  };
+</script>
+{% endblock %}
