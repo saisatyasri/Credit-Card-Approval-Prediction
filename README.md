@@ -160,11 +160,11 @@ Visit `http://localhost:5000`
 
 | Name | Role | Email |
 |---|---|---|
-| sirisha  | Team Lead |  |
-|  sai satya sri| App Development |  |
-| prasanna | Data Analysis & EDA |  |
-| hansraj | Data Preprocessing | |
-| sravya | Feature Engineering & Models |  |
+| Sirisha Medisetti  | (Team Lead)Feature Engineering & Models  | medisettisirisha08@gmail.com |
+| Sai Satya Sri Mutyala| App Development | satyasrimutyala22@gmail.com |
+| Prasanna Nagabathula | Data Analysis & EDA | rekhaprasanna404@gmail.com |
+| Mortha Hans Raj | Data Preprocessing | morthahansraj234@gmail.com |
+
 
 ---
 
