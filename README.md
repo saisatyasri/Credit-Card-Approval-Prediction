@@ -114,7 +114,7 @@ Credit-Card-Approval-Prediction/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/karthik-ganti/Credit-Card-Approval-Prediction.git
+git clone https://github.com/saisatyasri/Credit-Card-Approval-Prediction.git
 cd Credit-Card-Approval-Prediction
 
 # 2. Install dependencies
