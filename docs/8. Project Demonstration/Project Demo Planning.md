@@ -8,11 +8,11 @@
 
 | # | Segment | Presenter | Duration | Content |
 |---|---|---|---|---|
-| 1 | **Introduction** | Karthik | 2 min | Project goal, problem statement, team introduction |
-| 2 | **Problem & Dataset** | Nandini | 3 min | Credit approval challenges, Kaggle dataset overview, EDA insights |
-| 3 | **ML Pipeline** | Uma + Vivek | 5 min | Feature engineering, model training, class imbalance handling, Random Forest selection |
-| 4 | **Live Application Demo** | Joy | 4 min | Full walkthrough: Dashboard → Scenario Cards → Predict Form → Result → History |
-| 5 | **Architecture & Deployment** | Karthik | 2 min | 3-layer architecture, GitHub → Render CI/CD, live URL |
+| 1 | **Introduction** | sirisha | 2 min | Project goal, problem statement, team introduction |
+| 2 | **Problem & Dataset** | satya sri | 3 min | Credit approval challenges, Kaggle dataset overview, EDA insights |
+| 3 | **ML Pipeline** | prasanna+sravya | 5 min | Feature engineering, model training, class imbalance handling, Random Forest selection |
+| 4 | **Live Application Demo** | hans raj | 4 min | Full walkthrough: Dashboard → Scenario Cards → Predict Form → Result → History |
+| 5 | **Architecture & Deployment** | sirisha | 2 min | 3-layer architecture, GitHub → Render CI/CD, live URL |
 | 6 | **Future Plans** | Vivek | 1 min | Hyperparameter tuning, IBM Watson ML, user authentication |
 | 7 | **Q&A** | All | 3 min | Panel responds to questions |
 | | **Total** | | **20 min** | |
