@@ -19,7 +19,7 @@ We developed an end-to-end machine learning pipeline that ingests real-world cre
 | **Scope** | Data ingestion → Target engineering → Feature engineering → Model training → Web app → Render deployment |
 | **Dataset** | Kaggle: `rikdifos/credit-card-approval-prediction` (application_record.csv: 438,557 rows; credit_record.csv: 1,048,575 rows) |
 | **Live URL** | https://credit-card-approval-prediction-ra22.onrender.com |
-| **GitHub Repository** | https://github.com/karthik-ganti/Credit-Card-Approval-Prediction |
+| **GitHub Repository** | https://github.com/saisatyasri/Credit-Card-Approval-Prediction |
 
 ---
 
