@@ -9,11 +9,11 @@
 
 | S.No | Team Member | Idea / Suggestion | Category | Group No. |
 |---|---|---|---|---|
-| 1 | Karthik Ganti | Predict credit card approval using applicant financial history | ML Classification | Group 1 |
-| 2 | Joy Kumar Roy | Build a crop recommendation system using soil and weather data | ML Classification | Group 2 |
-| 3 | Nandini Priya Masina | Develop a loan eligibility predictor for home loans | ML Classification | Group 1 |
-| 4 | Kunisetti Uma Nandeswari | Create a fraud detection system for online transactions | ML Anomaly Detection | Group 3 |
-| 5 | Kantipudi Vivek Vardhan | Build a stock price prediction tool using historical data | ML Regression | Group 4 |
+| 1 | Sirisha Medisetti | Predict credit card approval using applicant financial history | ML Classification | Group 1 |
+| 2 | Sai Satya Sri  Mutyala | Build a crop recommendation system using soil and weather data | ML Classification | Group 2 |
+| 3 | Rekha Prasanna Nagabathula | Develop a loan eligibility predictor for home loans | ML Classification | Group 1 |
+| 4 | Hans Raj Mortha | Create a fraud detection system for online transactions | ML Anomaly Detection | Group 3 |
+| 5 | Sravya Sri Nakkalapudi | Build a stock price prediction tool using historical data | ML Regression | Group 4 |
 
 ---
 
