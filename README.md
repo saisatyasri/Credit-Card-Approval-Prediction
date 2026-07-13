@@ -162,7 +162,7 @@ Visit `http://localhost:5000`
 |---|---|---|
 | Sirisha Medisetti  | (Team Lead)Feature Engineering & Models  | medisettisirisha08@gmail.com |
 | Sai Satya Sri Mutyala| App Development | satyasrimutyala22@gmail.com |
-| Prasanna Nagabathula | Data Analysis & EDA | rekhaprasanna404@gmail.com |
+| Rekha Prasanna Nagabathula | Data Analysis & EDA | rekhaprasanna404@gmail.com |
 | Mortha Hans Raj | Data Preprocessing | morthahansraj234@gmail.com |
 
 
