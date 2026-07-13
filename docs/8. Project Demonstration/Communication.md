@@ -13,7 +13,7 @@
 | **Rekha Prasanna Nagabathula** | Data Engineer | Preprocessing: Feature engineering, encoding, scaling, target variable logic | 2 min |
 | **Hansraj Mortha** | ML Engineer | Models: Training 4 classifiers, comparison metrics, why Random Forest won | 3 min |
 | **Sravya Sri Nakkalapudi** | Backend Developer | Live Demo: Walkthrough of the web application features | 4 min |
-| **Sirisha Medisett** | Team Lead | Conclusion: Future enhancements, Q&A facilitation | 1 min |
+| **Sirisha Medisetti** | Team Lead | Conclusion: Future enhancements, Q&A facilitation | 1 min |
 
 ---
 
