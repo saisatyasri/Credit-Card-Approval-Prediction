@@ -8,12 +8,12 @@
 
 | Team Member | Role | Presentation Section | Duration |
 |---|---|---|---|
-| **Karthik Ganti** | Team Lead | Introduction: Project overview, problem statement, and ML approach | 2 min |
-| **Nandini** | Data Analyst | Data: Dataset overview, EDA findings, class imbalance challenge | 3 min |
-| **Uma** | Data Engineer | Preprocessing: Feature engineering, encoding, scaling, target variable logic | 2 min |
-| **Vivek** | ML Engineer | Models: Training 4 classifiers, comparison metrics, why Random Forest won | 3 min |
-| **Joy Michael** | Backend Developer | Live Demo: Walkthrough of the web application features | 4 min |
-| **Karthik Ganti** | Team Lead | Conclusion: Future enhancements, Q&A facilitation | 1 min |
+| **Sirisha Medisetti** | Team Lead | Introduction: Project overview, problem statement, and ML approach | 2 min |
+| **Sai Satya Sri Mutyala** | Data Analyst | Data: Dataset overview, EDA findings, class imbalance challenge | 3 min |
+| **Rekha Prasanna Nagabathula** | Data Engineer | Preprocessing: Feature engineering, encoding, scaling, target variable logic | 2 min |
+| **Hansraj Mortha** | ML Engineer | Models: Training 4 classifiers, comparison metrics, why Random Forest won | 3 min |
+| **Sravya Sri Nakkalapudi** | Backend Developer | Live Demo: Walkthrough of the web application features | 4 min |
+| **Sirisha Medisett** | Team Lead | Conclusion: Future enhancements, Q&A facilitation | 1 min |
 
 ---
 
