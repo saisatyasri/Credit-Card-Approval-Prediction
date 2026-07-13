@@ -8,11 +8,11 @@
 
 | # | Name | Role | Primary Contributions | Contribution % |
 |---|---|---|---|---|
-| 1 | **Karthik Ganti** | Team Lead / ML Engineer | Project coordination, target variable engineering, model training, Flask frontend (templates, CSS, JS), Render deployment, GitHub repository management | 30% |
-| 2 | **Joy Michael** | Backend Developer | Flask route implementation, `preprocess_input()` function, prediction history logic, form-to-model integration, session management | 20% |
-| 3 | **Uma** | Data Engineer / DevOps | Kaggle dataset acquisition, data cleaning, preprocessing pipeline (StandardScaler, LabelEncoder), Render deployment configuration (Procfile, render.yaml) | 20% |
-| 4 | **Nandini** | Data Analyst / QA | Exploratory Data Analysis (EDA notebook — 11 sections), feature distribution visualizations, functional testing (8 test cases), documentation review | 15% |
-| 5 | **Vivek** | ML Engineer | Feature engineering (AGE_YEARS, YEARS_EMPLOYED, IS_UNEMPLOYED, INCOME_PER_MEMBER), XGBoost training with scale_pos_weight, model comparison evaluation, metadata.pkl generation | 15% |
+| 1 | **Sirisha Medisetti** | Team Lead / ML Engineer | Project coordination, target variable engineering, model training, Flask frontend (templates, CSS, JS), Render deployment, GitHub repository management | 30% |
+| 2 | **Sai Satya Sri  Mutyala** | Backend Developer | Flask route implementation, `preprocess_input()` function, prediction history logic, form-to-model integration, session management | 20% |
+| 3 | **Rekha Prasanna Nagabathula** | Data Engineer / DevOps | Kaggle dataset acquisition, data cleaning, preprocessing pipeline (StandardScaler, LabelEncoder), Render deployment configuration (Procfile, render.yaml) | 20% |
+| 4 | **Hans Raj Mortha** | Data Analyst / QA | Exploratory Data Analysis (EDA notebook — 11 sections), feature distribution visualizations, functional testing (8 test cases), documentation review | 15% |
+| 5 | **Sravya Sri Nakkalapudi** | ML Engineer | Feature engineering (AGE_YEARS, YEARS_EMPLOYED, IS_UNEMPLOYED, INCOME_PER_MEMBER), XGBoost training with scale_pos_weight, model comparison evaluation, metadata.pkl generation | 15% |
 
 ---
 
@@ -20,11 +20,11 @@
 
 | Team Member | Stories Assigned |
 |---|---|
-| Karthik Ganti | S1, S3, S7, S11, S14, S15, S17, S18, S20 |
-| Joy Michael | S4, S8, S9, S10, S19 |
-| Uma | S2, S5, S12, S16 |
-| Nandini | S6, S13 |
-| Vivek | S7 (shared), S8 (shared), S11 (shared) |
+| Sirisha Medisetti | S1, S3, S7, S11, S14, S15, S17, S18, S20 |
+| Sai Satya Sri  Mutyala | S4, S8, S9, S10, S19 |
+| Rekha Prasanna Nagabathula | S2, S5, S12, S16 |
+| Hans Raj Mortha | S6, S13 |
+| Sravya Sri Nakkalapudi| S7 (shared), S8 (shared), S11 (shared) |
 
 > Story IDs correspond to the sprint backlog in `docs/4. Project Planning Phase/Project Planning.md`
 
