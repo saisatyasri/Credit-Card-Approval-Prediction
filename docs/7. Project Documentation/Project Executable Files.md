@@ -73,7 +73,7 @@ Credit Card Approval Prediction/
 | Attribute | Detail |
 |---|---|
 | **Live URL** | https://credit-card-approval-prediction-ra22.onrender.com |
-| **GitHub Repository** | https://github.com/karthik-ganti/Credit-Card-Approval-Prediction |
+| **GitHub Repository** | https://github.com/saisatyasri/Credit-Card-Approval-Prediction |
 | **Hosting Platform** | Render (free tier) |
 | **WSGI Server** | Gunicorn 21.2.0 |
 | **Start Command** | `gunicorn app:app` |
@@ -85,7 +85,7 @@ Credit Card Approval Prediction/
 
 ```bash
 # Step 1: Clone the repository
-git clone https://github.com/karthik-ganti/Credit-Card-Approval-Prediction.git
+git clone https://github.com/saisatyasri/Credit-Card-Approval-Prediction.git
 cd Credit-Card-Approval-Prediction
 
 # Step 2: Install dependencies
