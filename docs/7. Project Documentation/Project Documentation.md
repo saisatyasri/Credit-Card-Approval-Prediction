@@ -1,7 +1,7 @@
 # Project Documentation
 
 **Project:** Credit Card Approval Prediction
-**Team:** Karthik Ganti, Joy Michael, Uma, Nandini, Vivek
+**Team:** sirisha, satya,prasanna,sravya,hansraj
 
 ---
 
