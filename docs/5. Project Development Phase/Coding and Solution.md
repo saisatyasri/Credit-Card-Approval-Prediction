@@ -8,7 +8,7 @@
 
 | Attribute | Detail |
 |---|---|
-| **GitHub URL** | https://github.com/karthik-ganti/Credit-Card-Approval-Prediction |
+| **GitHub URL** | https://github.com/saisatyasri/Credit-Card-Approval-Prediction |
 | **Primary Language** | Python 3.12 |
 | **Frameworks** | Flask 3.1.2 (web), Scikit-learn 1.8.0 + XGBoost 3.2.0 (ML) |
 | **Frontend** | HTML5, CSS3, JavaScript, Bootstrap 5.3.2 |
@@ -20,7 +20,7 @@
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/karthik-ganti/Credit-Card-Approval-Prediction.git
+git clone https://github.com/saisatyasri/Credit-Card-Approval-Prediction.git
 cd Credit-Card-Approval-Prediction
 
 # 2. Install dependencies
