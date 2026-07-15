@@ -164,6 +164,7 @@ Visit `http://localhost:5000`
 | Sai Satya Sri Mutyala| App Development | satyasrimutyala22@gmail.com |
 | Rekha Prasanna Nagabathula | Data Analysis & EDA | rekhaprasanna404@gmail.com |
 | Mortha Hans Raj | Data Preprocessing | morthahansraj234@gmail.com |
+| Sravy Sri Nakkalapudi| Feature Engineering & Models | sravyanakkalapudi@gmail.com |
 
 
 ---
